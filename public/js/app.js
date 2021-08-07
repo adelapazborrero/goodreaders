@@ -2040,6 +2040,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -2068,7 +2074,7 @@ __webpack_require__.r(__webpack_exports__);
     });
   },
   methods: {
-    deleteData: function deleteData() {
+    deleteBook: function deleteBook() {
       axios__WEBPACK_IMPORTED_MODULE_0___default().delete("/api/books/" + this.id).then(this.$router.push({
         name: "main"
       }))["catch"](function (err) {
@@ -2083,6 +2089,11 @@ __webpack_require__.r(__webpack_exports__);
           name: "login"
         });
       }
+    },
+    deleteReview: function deleteReview() {
+      axios__WEBPACK_IMPORTED_MODULE_0___default().delete("/api/rating/" + this.id).then(this.$router.push({
+        name: "bookdetails"
+      }));
     }
   }
 });
@@ -2429,6 +2440,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue_star_rating__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-star-rating */ "./node_modules/vue-star-rating/dist/VueStarRating.common.js");
 /* harmony import */ var vue_star_rating__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_star_rating__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
 //
 //
 //
@@ -7261,7 +7274,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n* {\r\n    padding: 0%;\r\n    margin: 0%;\r\n    box-sizing: border-box;\n}\nbody {\r\n    color: #2c3e50;\r\n    width: 100%;\r\n    min-height: 100vh;\n}\n.nav-bar {\r\n    display: flex;\r\n    justify-content: space-around;\n}\n.login-section {\r\n    padding-top: 15px;\n}\n.logout-section {\r\n    display: flex;\r\n    padding-top: 15px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n* {\r\n    padding: 0%;\r\n    margin: 0%;\r\n    box-sizing: border-box;\n}\nbody {\r\n    color: #2c3e50;\r\n    width: 100%;\r\n    min-height: 100vh;\n}\n.nav-bar {\r\n    display: flex;\r\n    justify-content: space-around;\r\n    background-color: #393e46;\r\n    color: blanchedalmond;\n}\na {\r\n    color: blanchedalmond;\n}\n.login-section {\r\n    padding-top: 15px;\n}\n.logout-section {\r\n    display: flex;\r\n    padding-top: 15px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -39825,9 +39838,9 @@ var render = function() {
                   expression: "this.authUser"
                 }
               ],
-              on: { click: _vm.deleteData }
+              on: { click: _vm.deleteBook }
             },
-            [_vm._v("Delete")]
+            [_vm._v("\n            Delete this book\n        ")]
           ),
           _vm._v(" "),
           _c(
@@ -39935,7 +39948,11 @@ var render = function() {
             [_c("button", [_vm._v("Edit Reviews")])]
           )
         ]
-      )
+      ),
+      _vm._v(" "),
+      _c("button", { on: { click: _vm.deleteReview } }, [
+        _vm._v("Delete Review")
+      ])
     ],
     1
   )
@@ -40448,42 +40465,49 @@ var render = function() {
         1
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "comment-part" }, [
-        _c("h5", [_vm._v("What did you think?")]),
-        _vm._v(" "),
-        _c("form", { staticClass: "comment" }, [
-          _c("label", { attrs: { for: "comment" } }),
+      _c(
+        "div",
+        { staticClass: "comment-part" },
+        [
+          _c("h5", [_vm._v("What did you think?")]),
           _vm._v(" "),
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.comment,
-                expression: "comment"
-              }
-            ],
-            attrs: {
-              name: "comment",
-              id: "comment",
-              placeholder: "What did you think?"
-            },
-            domProps: { value: _vm.comment },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+          _c("form", { staticClass: "comment" }, [
+            _c("label", { attrs: { for: "comment" } }),
+            _vm._v(" "),
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.comment,
+                  expression: "comment"
                 }
-                _vm.comment = $event.target.value
+              ],
+              attrs: {
+                name: "comment",
+                id: "comment",
+                placeholder: "What did you think?"
+              },
+              domProps: { value: _vm.comment },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.comment = $event.target.value
+                }
               }
-            }
-          })
-        ]),
-        _vm._v(" "),
-        _c("button", [_vm._v("Edit")]),
-        _vm._v(" "),
-        _c("button", [_vm._v("Cancel")])
-      ])
+            })
+          ]),
+          _vm._v(" "),
+          _c("button", [_vm._v("Edit")]),
+          _vm._v(" "),
+          _c("router-link", { attrs: { to: { name: "bookdetails" } } }, [
+            _c("button", [_vm._v("Cancel")])
+          ])
+        ],
+        1
+      )
     ])
   ])
 }
@@ -40695,12 +40719,6 @@ var render = function() {
           "div",
           { key: book.id, staticClass: "col-4 book-list " },
           [
-            _c("h5", [_vm._v(_vm._s(book.title))]),
-            _vm._v(" "),
-            _c("p", [_vm._v(_vm._s(book.author))]),
-            _vm._v(" "),
-            _c("p", [_vm._v("Posted by " + _vm._s(book.user.name))]),
-            _vm._v(" "),
             _c(
               "router-link",
               {
@@ -40717,7 +40735,13 @@ var render = function() {
                   attrs: { src: "/storage/" + book.image }
                 })
               ]
-            )
+            ),
+            _vm._v(" "),
+            _c("h5", [_vm._v(_vm._s(book.title))]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(book.author))]),
+            _vm._v(" "),
+            _c("p", [_vm._v("Posted by " + _vm._s(book.user.name))])
           ],
           1
         )

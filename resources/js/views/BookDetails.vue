@@ -8,7 +8,12 @@
             <p>Description: {{ book.description }}</p>
             <p>Genre: {{ book.genre }}</p>
             <p>Created at: {{ book.created_at }}</p>
-            <button v-show="this.authUser" @click="deleteData">Delete</button>
+
+            <!-- only the Poster could see the delete button -->
+
+            <button v-show="this.authUser" @click="deleteBook">
+                Delete this book
+            </button>
 
             <router-link :to="{ name: 'editdetails', params: { id: book.id } }">
                 <button v-show="this.authUser">Edit</button>
@@ -40,6 +45,7 @@
                 <button>Edit Reviews</button>
             </div>
         </router-link>
+        <button @click="deleteReview">Delete Review</button>
     </div>
 </template>
 
@@ -70,7 +76,7 @@ export default {
             .catch(err => console.log(err));
     },
     methods: {
-        deleteData() {
+        deleteBook() {
             axios
                 .delete("/api/books/" + this.id)
                 .then(this.$router.push({ name: "main" }))
@@ -82,6 +88,11 @@ export default {
             } else {
                 this.$router.push({ name: "login" });
             }
+        },
+        deleteReview() {
+            axios
+                .delete("/api/rating/" + this.id)
+                .then(this.$router.push({ name: "bookdetails" }));
         }
     }
 };

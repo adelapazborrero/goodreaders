@@ -9,9 +9,6 @@
         </div>
         <div class="row">
             <div class="col-4 book-list " v-for="book in books" :key="book.id">
-                <h5>{{ book.title }}</h5>
-                <p>{{ book.author }}</p>
-                <p>Posted by {{ book.user.name }}</p>
                 <router-link
                     :to="{
                         name: 'bookdetails',
@@ -23,6 +20,9 @@
                         :src="`/storage/${book.image}`"
                     />
                 </router-link>
+                <h5>{{ book.title }}</h5>
+                <p>{{ book.author }}</p>
+                <p>Posted by {{ book.user.name }}</p>
             </div>
         </div>
     </div>

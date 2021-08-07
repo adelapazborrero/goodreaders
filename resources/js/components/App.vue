@@ -74,8 +74,13 @@ body {
 .nav-bar {
     display: flex;
     justify-content: space-around;
+    background-color: #393e46;
+    color: blanchedalmond;
 }
 
+a {
+    color: blanchedalmond;
+}
 .login-section {
     padding-top: 15px;
 }

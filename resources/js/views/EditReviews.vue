@@ -20,7 +20,9 @@
                     ></textarea>
                 </form>
                 <button>Edit</button>
-                <button>Cancel</button>
+                <router-link :to="{ name: 'bookdetails' }">
+                    <button>Cancel</button>
+                </router-link>
             </div>
         </div>
     </div>
