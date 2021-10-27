@@ -33,8 +33,7 @@
         </div>
 
         <div class="router-link">
-            <router-link :to="{ name: 'main' }">Home</router-link>
-            |
+            <router-link :to="{ name: 'main' }">Home</router-link> |
             <router-link :to="{ name: 'endpoints' }">Endpoints</router-link> |
             <router-link :to="{ name: 'login' }">Login</router-link>
         </div>
@@ -75,8 +74,13 @@ body {
 .nav-bar {
     display: flex;
     justify-content: space-around;
+    background-color: #393e46;
+    color: blanchedalmond;
 }
 
+a {
+    color: blanchedalmond;
+}
 .login-section {
     padding-top: 15px;
 }

@@ -30,7 +30,10 @@ import App from "./components/App";
 import Home from "./views/Home.vue";
 import CreateBook from "./views/CreateBook.vue";
 import Endpoints from "./views/Endpoints.vue";
+import BookDetails from "./views/BookDetails.vue";
 import Login from "./views/Login.vue";
+import EditDetails from "./views/EditDetails.vue";
+import EditReviews from "./views/EditReviews.vue";
 
 const router = new VueRouter({
     mode: "history",
@@ -41,15 +44,33 @@ const router = new VueRouter({
             component: Home
         },
         {
+            path: "/create-new-book",
+            name: "createbook",
+            component: CreateBook
+            //meta: { requiresAuth: true }
+        },
+        {
             path: "/login",
             name: "login",
             component: Login
         },
         {
-            path: "/create-new-book",
-            name: "createbook",
-            component: CreateBook
-            //meta: { requiresAuth: true }
+            path: "/books/:id",
+            name: "bookdetails",
+            props: true,
+            component: BookDetails
+        },
+        {
+            path: "/edit-details/:id",
+            name: "editdetails",
+            props: true,
+            component: EditDetails
+        },
+        {
+            path: "/api/rating/:id ",
+            name: "editreviews",
+            props: true,
+            component: EditReviews
         },
         {
             path: "/endpoints",

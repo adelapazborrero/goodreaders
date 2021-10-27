@@ -1,8 +1,8 @@
 <template>
     <div class="row justify-content-center">
         <div class="col-9">
-            <form @submit.prevent="submit">
-                <h3>Add new book</h3>
+            <form @submit.prevent="saveData">
+                <h3>Edit</h3>
                 <div v-if="errors" class="mb-3">
                     <!--<b>Please correct the following error(s):</b>-->
                     <ul>
@@ -11,10 +11,9 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label" for="title">Title</label>
+                    <label class="form-label">Title</label>
                     <input
                         class="form-control"
-                        id="title"
                         type="text"
                         v-model="form.title"
                         placeholder="Harry Potter"
@@ -22,10 +21,9 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label" for="author">Author</label>
+                    <label class="form-label">Author</label>
                     <input
                         class="form-control"
-                        id="author"
                         type="text"
                         v-model="form.author"
                         placeholder=" J. K. Rowling"
@@ -33,10 +31,9 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label" for="genre">Genre</label>
+                    <label class="form-label">Genre</label>
                     <input
                         class="form-control"
-                        id="genre"
                         type="text"
                         v-model="form.genre"
                         placeholder="Fantasy-fiction"
@@ -44,10 +41,9 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label" for="buy_link">Buy Link</label>
+                    <label class="form-label">Buy Link</label>
                     <input
                         class="form-control"
-                        id="buy_link"
                         type="url"
                         v-model="form.buy_link"
                         placeholder="http://"
@@ -55,11 +51,10 @@
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label" for="descrip">Description</label>
+                    <label class="form-label">Description</label>
                     <textarea
                         class="form-control"
-                        name="descrip"
-                        id="descrip"
+                        type="text"
                         v-model="form.description"
                         placeholder="Best book ever!"
                     />
@@ -79,9 +74,17 @@
                         >
                     </div>
                 </div>
-                <button class="btn btn-primary mb-3">
-                    Submit
-                </button>
+                <div class="button-style">
+                    <button class="btn btn-primary ">
+                        Save
+                    </button>
+
+                    <router-link :to="{ name: 'bookdetails' }">
+                        <button class="btn btn-primary ">
+                            Cancel
+                        </button>
+                    </router-link>
+                </div>
             </form>
         </div>
     </div>
@@ -92,7 +95,8 @@ import axios from "axios";
 export default {
     name: "Form",
     props: {
-        authUser: ""
+        authUser: "",
+        id: ""
     },
     data() {
         return {
@@ -107,14 +111,27 @@ export default {
             }
         };
     },
-    mounted() {
+    created() {
         if (!this.authUser) {
             this.$router.push({ name: "login" });
         }
+        axios
+            .get("/api/books/" + this.id)
+            .then(res => {
+                this.form.title = res.data.book.title;
+                this.form.description = res.data.book.description;
+                this.form.genre = res.data.book.genre;
+                this.form.buy_link = res.data.book.buy_link;
+                this.form.author = res.data.book.author;
+            })
+            .catch(err => console.log(err));
     },
     methods: {
-        submit() {
-            let formData = new FormData();
+        handleFileUpload() {
+            this.file = this.$refs.file.files[0];
+        },
+        saveData() {
+            /*let formData = new FormData();
             formData.append("title", this.form.title);
             formData.append("description", this.form.description);
             formData.append("genre", this.form.genre);
@@ -123,24 +140,17 @@ export default {
             formData.append("image", this.file);
             formData.append("user_id", this.form.user_id);
 
-            axios
-                .post("/api/books/save", formData, {
-                    headers: {
-                        "Content-Type": "multipart/form-data"
-                    }
-                })
-                .then(res => location.reload())
-                .catch(error => {
-                    this.errors = error.response.data.errors;
-                });
-        },
-        handleFileUpload() {
-            this.file = this.$refs.file.files[0];
+            for (var i of formData.entries()) {
+                console.log(i);
+            }*/
+            axios.put("/api/books/" + this.id, this.form);
+            /*.then(res => console.log(Success))
+                .catch(err => console.log(err));*/
         }
     }
 };
 </script>
-r
+
 <style scoped>
 .container {
     width: 500px;
@@ -159,7 +169,11 @@ h3 {
 
 button {
     margin-top: 10px;
-    width: 100%;
+}
+
+.button-style {
+    display: flex;
+    justify-content: space-around;
 }
 
 form input {
