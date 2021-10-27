@@ -2271,8 +2271,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
-<<<<<<< HEAD
-=======
 //
 //
 //
@@ -2307,7 +2305,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
->>>>>>> frontend
 //
 //
 //
@@ -2418,7 +2415,7 @@ __webpack_require__.r(__webpack_exports__);
       formData.append("author", this.form.author);
       formData.append("image", this.file);
       formData.append("user_id", this.form.user_id);
-        for (var i of formData.entries()) {
+       for (var i of formData.entries()) {
           console.log(i);
       }*/
       axios__WEBPACK_IMPORTED_MODULE_0___default().put("/api/books/" + this.id, this.form);
@@ -2443,7 +2440,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue_star_rating__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-star-rating */ "./node_modules/vue-star-rating/dist/VueStarRating.common.js");
 /* harmony import */ var vue_star_rating__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_star_rating__WEBPACK_IMPORTED_MODULE_0__);
-//
 //
 //
 //
@@ -2592,6 +2588,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
 //
 //
 //
@@ -7278,10 +7275,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-<<<<<<< HEAD
-___CSS_LOADER_EXPORT___.push([module.id, "\n* {\n    padding: 0%;\n    margin: 0%;\n    box-sizing: border-box;\n}\nbody {\n    color: #2c3e50;\n    width: 100%;\n    min-height: 100vh;\n}\n.nav-bar {\n    display: flex;\n    justify-content: space-around;\n}\n.login-section {\n    padding-top: 15px;\n}\n.logout-section {\n    display: flex;\n    padding-top: 15px;\n}\n", ""]);
-=======
-___CSS_LOADER_EXPORT___.push([module.id, "\n* {\r\n    padding: 0%;\r\n    margin: 0%;\r\n    box-sizing: border-box;\n}\nbody {\r\n    color: #2c3e50;\r\n    width: 100%;\r\n    min-height: 100vh;\n}\n.nav-bar {\r\n    display: flex;\r\n    justify-content: space-around;\r\n    background-color: #393e46;\r\n    color: blanchedalmond;\n}\na {\r\n    color: blanchedalmond;\n}\n.login-section {\r\n    padding-top: 15px;\n}\n.logout-section {\r\n    display: flex;\r\n    padding-top: 15px;\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n* {\n    padding: 0%;\n    margin: 0%;\n    box-sizing: border-box;\n}\nbody {\n    color: #2c3e50;\n    width: 100%;\n    min-height: 100vh;\n}\n.nav-bar {\n    display: flex;\n    justify-content: space-around;\n    background-color: #393e46;\n    color: blanchedalmond;\n}\na {\n    color: blanchedalmond;\n}\n.login-section {\n    padding-top: 15px;\n}\n.logout-section {\n    display: flex;\n    padding-top: 15px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7305,8 +7299,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nspan[data-v-7eb1d24a] {\r\n    font-weight: bold;\r\n    color: blueviolet;\n}\r\n", ""]);
->>>>>>> frontend
+___CSS_LOADER_EXPORT___.push([module.id, "\nspan[data-v-7eb1d24a] {\n    font-weight: bold;\n    color: blueviolet;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7354,11 +7347,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-<<<<<<< HEAD
-___CSS_LOADER_EXPORT___.push([module.id, "\nbody[data-v-105d8f22] {\n    display: none;\n}\n", ""]);
-=======
-___CSS_LOADER_EXPORT___.push([module.id, "\n.container[data-v-f42ddeee] {\r\n    width: 500px;\r\n    max-width: 100%;\r\n    overflow: hidden;\r\n    background-color: white;\r\n    border-radius: 5px;\n}\nh3[data-v-f42ddeee] {\r\n    margin-bottom: 20px;\r\n    border-bottom: 1px solid salmon;\r\n    text-align: center;\r\n    padding-bottom: 10px;\n}\nbutton[data-v-f42ddeee] {\r\n    margin-top: 10px;\n}\n.button-style[data-v-f42ddeee] {\r\n    display: flex;\r\n    justify-content: space-around;\n}\nform input[data-v-f42ddeee] {\r\n    padding: 20px 0px;\n}\r\n", ""]);
->>>>>>> frontend
+___CSS_LOADER_EXPORT___.push([module.id, "\n.container[data-v-f42ddeee] {\n    width: 500px;\n    max-width: 100%;\n    overflow: hidden;\n    background-color: white;\n    border-radius: 5px;\n}\nh3[data-v-f42ddeee] {\n    margin-bottom: 20px;\n    border-bottom: 1px solid salmon;\n    text-align: center;\n    padding-bottom: 10px;\n}\nbutton[data-v-f42ddeee] {\n    margin-top: 10px;\n}\n.button-style[data-v-f42ddeee] {\n    display: flex;\n    justify-content: space-around;\n}\nform input[data-v-f42ddeee] {\n    padding: 20px 0px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7382,11 +7371,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-<<<<<<< HEAD
-___CSS_LOADER_EXPORT___.push([module.id, "\n.book-list[data-v-63cd6604] {\n    width: 300px;\n    height: 300px;\n    background-color: pink;\n}\n", ""]);
-=======
-___CSS_LOADER_EXPORT___.push([module.id, "\nbody[data-v-105d8f22] {\r\n    display: none;\n}\r\n", ""]);
->>>>>>> frontend
+___CSS_LOADER_EXPORT___.push([module.id, "\nbody[data-v-105d8f22] {\n    display: none;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -7410,11 +7395,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-<<<<<<< HEAD
-___CSS_LOADER_EXPORT___.push([module.id, "\n.container[data-v-12f5395a] {\n    border-radius: 5px;\n}\n", ""]);
-=======
-___CSS_LOADER_EXPORT___.push([module.id, "\n.book-list[data-v-63cd6604] {\r\n    width: 300px;\r\n    height: 300px;\r\n    background-color: pink;\n}\r\n", ""]);
->>>>>>> frontend
+___CSS_LOADER_EXPORT___.push([module.id, "\n.book-list[data-v-63cd6604] {\n    width: 300px;\n    height: 300px;\n    background-color: pink;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -40523,7 +40504,7 @@ var render = function() {
           _c("button", [_vm._v("Edit")]),
           _vm._v(" "),
           _c("router-link", { attrs: { to: { name: "bookdetails" } } }, [
-            _c("button", [_vm._v("Cancel")])
+            _c("button", [_vm._v("Cancelo")])
           ])
         ],
         1
@@ -40735,20 +40716,6 @@ var render = function() {
       "div",
       { staticClass: "row" },
       _vm._l(_vm.books, function(book) {
-<<<<<<< HEAD
-        return _c("div", { key: book.id, staticClass: "col-4 book-list " }, [
-          _c("h5", [_vm._v(_vm._s(book.title))]),
-          _vm._v(" "),
-          _c("p", [_vm._v(_vm._s(book.author))]),
-          _vm._v(" "),
-          _c("p", [_vm._v("Posted by " + _vm._s(book.user.name))]),
-          _vm._v(" "),
-          _c("img", {
-            staticStyle: { height: "100px" },
-            attrs: { src: "/storage/" + book.image }
-          })
-        ])
-=======
         return _c(
           "div",
           { key: book.id, staticClass: "col-4 book-list " },
@@ -40775,11 +40742,15 @@ var render = function() {
             _vm._v(" "),
             _c("p", [_vm._v(_vm._s(book.author))]),
             _vm._v(" "),
-            _c("p", [_vm._v("Posted by " + _vm._s(book.user.name))])
+            _c("p", [_vm._v("Posted by " + _vm._s(book.user.name))]),
+            _vm._v(" "),
+            _c("img", {
+              staticStyle: { height: "100px" },
+              attrs: { src: "/storage/" + book.image }
+            })
           ],
           1
         )
->>>>>>> frontend
       }),
       0
     )
